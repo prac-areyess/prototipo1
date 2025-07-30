@@ -1,0 +1,59 @@
+1.  Llega el mensaje de los colaboradores con los zips, 
+2.  Descarga y corroboracion que cumpla los parametros establecidos, ya sea para un solo ruc o terceros.
+3.  Una vez corroborado, se ingresa al bot y si se sube en el primer enrutamientos los pdfs a trabajar. 
+	RUC_ORDEN / RUC_ORDEN_TERCERO
+4.  En el segundo enrutamiento se sube el excel con las informacion necesaria. 
+	Tener en cuenta que el excel para uno solo, solo tendria un ruc, en el caso que halle un tercero, 
+	se tendria dos ruc's.
+5.  El bot una vez generado el nro de solicitud, se dirige al módulo Reporte de Seguimiento.
+6.  Se descarga el reporte generado. El bot comprime en carpetas zips y los separa, dependiendo del tipo 
+    de documento.
+7.  Luego cada carpeta zip se sube a la intranet SINET y se registra el pedido, se completa la dependencia,
+    el tipo de documento, el responsable SINET, Clase de documento, dependiendo del tipo. 
+8.  Se genera el número de registro (Pedido Cliente).
+9.  Luego se consulta el número de Pedido SINE generado. Se puede ubicar en el módulo Consulta Registro 
+    Manual de Notificación.
+10. Como ultimo, se manda un correo de respuesta al colaborador, con el numero de registro final de cada 
+    archivo, para que el colaborador pueda tener un control de sus solicitudes.
+
+SE REQUIERE:
+Que el bot o automatización pueda agrupar los diferentes correos que llegan y que el robot lo haga.
+
+Que se necesitaria:
+- Dos identificaciones, uno para el bot y otro para el intranet SINE (posiblemente del correo tambien).
+- Analizar si se puede ejecutar teniendo ya abierto los programas. 
+- Por ahora que el codigo puede hacer condicionales de los archivos, ya que habra procedimientos donde los 
+  colaboradores envien mas de 3mil archivos, lo cual podria hacer el codigo un poco lento y propenso a
+  errores.
+- Si es posible añadir que tambien cuando tengo todo listo, se pueda enviar un correo de respuesta del
+  registrador hacia el colaborador. Para que el registrador ya no haga ese labor de estar mandando correos
+  de respuesta manualmente al colaborador. Podria ser como un template predeterminado. En este correo de 
+  respuesta se manda el numero de registro final.
+
+Otros aspectos:
+- Realizar la documentación del codigo.
+- Manual de codigo.
+- Manual de usuario.
+- Diferentes Lineamientos. 
+ 
+Ya tener una idea, habra reunión con el dr. Moisés para la explicación de lo que se requiere y presentarle
+la idea de solución. 
+
+-----------------------------------------------------------------------------------------------------------
+- Python
+- Excel
+- Correo
+- SineBOT
+- IntranetSINET
+-----------------------------------------------------------------------------------------------------------
+- Ejecutable.exe (posiblemente dos)
+-----------------------------------------------------------------------------------------------------------
+- Analizar si se trabajara PY+JS o solo PY. 
+-----------------------------------------------------------------------------------------------------------
+- Definir en que entorno se trabajara (VScode, Cursor, Anaconda, etc)
+- Hacer una estructuración de lo que se requerira, tener ya una idea de como implementar y diseñar el código
+-----------------------------------------------------------------------------------------------------------
+- 
+- Prototipo:
+pagina web con localhost con simulaciones 
+
