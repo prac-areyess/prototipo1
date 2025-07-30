@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototipo Intranet SUNAT</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .menu { background: #003366; color: #fff; padding: 10px; }
+        .menu h2 { margin: 0; font-size: 1.2em; }
+        .center-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .login-form {
+            margin-top: 30px;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+        .login-form label { display: block; margin-top: 10px; }
+        .login-form input {
+            width: 100%;
+            padding: 6px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+        .login-form button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 8px;
+            background: #003366;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background: #0055a5;
+        }
+        .mensaje {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+        .mensaje.error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h1>INTRANET SUNAT</h1>
+    </div>
+    <div class="center-container" id="loginContainer">
+        <p>Prueba / Prototipo</p>
+        <form class="login-form" id="loginForm">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        <div id="mensaje" class="mensaje"></div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const usuario = document.getElementById('usuario').value;
+            const contrasena = document.getElementById('contrasena').value;
+            const mensaje = document.getElementById('mensaje');
+            if(usuario === 'admin' && contrasena === '1234') {
+                mensaje.textContent = 'Login exitoso. Redirigiendo...';
+                mensaje.classList.remove('error');
+                setTimeout(() => {
+                    window.location.href = "opciones.html";
+                }, 1000);
+            } else {
+                mensaje.textContent = 'Usuario o contraseña incorrectos.';
+                mensaje.classList.add('error');
+            }
+        });
+    </script>
+</body>
+</html>
