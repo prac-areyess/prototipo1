@@ -1,0 +1,51 @@
+Archivo ZIP (Documentos + TXT)
+	- Documentos (Archivo PDF nombrado como RUC DEUDOR_RC)
+	- TXT(RUC DEUDOR + RC/RUC DEUDOR + RC + RUC TERCERO)(RUC|RC / RUC|RC|RUC DEUDOR)(RC=Resolución Coactiva)
+		Nota: Si se envia el documento al contribuyente: RUC|RC
+		      Si se envia el documento al tercero: RUC DEUDOR|RC|RUC TERCERO. 
+		      En el TXT habra uno o mas RC, dependiendo de la cantidad de pdf's.
+ORDEN DE SELECCIÓN EN EL REGISTRO MANUAL DE PEDIDO DE NOTIFICACIONES
+	- Pedido de Notificación
+		En total son 7 botones, de los cuales: Dependencia, Clase de Documento, Tipo de Documento y 
+		Responsable SINE son los unicos con boton para seleccionar distintas opciones, mientras que Número 
+		de proceso SINE, Encargado y UU.OO Responsable son botones no modificables debido a que se se 
+		autocompletan dependiendo de las opciones elegidas, por ejemplo si selecciono a un responsable SINE,
+		ese respinsable tiene un codigo y división a la cual pertenece, por ende en Encargado apareceria su
+		apellidos y nombres, en UU.00 Responsable su codigo y división la cual perteneces, mientras que en
+		Número de proceso SINE, es el número generado. Si un proceso anterior tuvo el número 10, este actual
+		vendría ser el 11.
+		Continuando con el orden de selección de botones desplegables, la primera opción que se dejara 
+		seleccionar será Dependencia, una vez seleccionada la dependencia se podra seleccionar Clase de
+		Documento, luego se podra elegir Tipo de Documento, y por último el Responsable SINE. Una vez 
+		seleccionada esta cuarta opción, se autocompletara las otras 3 botones.
+		Ya luego, se selecciona el archivo zip y se genera el número cliente. 
+SINEBOT
+	Filtro RSIRAT: COD_DEP | RUC_DEU | NRO_DOC | CLASE_DOC | TIP_DOC | COD_RES_SINE | FEC_EMISION
+		       COD_DEP | RUC_DEU | NRO_DOC | CLASE_DOC | TIP_DOC | COD_RES_SINE | FEC_EMISION | RUC_3RO
+		1. Dependencia
+		2. RUC destinatario
+		3. Número de documento 
+		4. Clase de documento
+		5. Tipo de documento
+		6. Responsable de la autorización del envío.
+		7. Fecha de emisión del documento.
+		8. RUC tercero
+	Empaqueta en paquetes zip si cumplen el mismo tipo, los documentos que sean del mismo tipo se forma en un 
+	mismo zip.
+	El bot para su funcionalidad necesita que todos los pdf se encuentren en su ruta predeterminada para el 
+	empaquetamiento, además el archivo excel que cumpla con el formato RSIRAT. En el caso del excel, simplemente
+	se selecciona el archivo excel. (Carpeta compartida por donde mandan los usuarios al registrador)
+	
+	 
+	
+SINE
+	Max 200 documentos por paquete zip con condición peso máx 30mb.
+	Una vez seleccionado los parametros y el zip, se genera un número preliminar.
+	Con el número preliminar, se procede a buscar en la tabla seleccionando los tipos de datos del que sea, y
+	en la tabla mostrada, el número preliminar debe coincidir con el número final, el cual es importante para 
+	el usuario que solicita.
+
+Posible solución: Realice los archivos pesados.S
+
+
+	

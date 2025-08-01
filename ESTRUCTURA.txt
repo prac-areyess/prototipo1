@@ -1,0 +1,38 @@
+ 
+
+
+
+
+- Registro Manual de Pedido de Notificaciones
+     Subtema Pedido de Notificación
+	Dependencia 		(Boton con selección / 0023-INTENDENCIA LIMA)
+	Tipo de Documento  	(Boton con selección / 007002 RES COACTIVA INTERVENCIÓN EN)
+	Responsable SINE 	(Boton con selección / 0280 GUARDIA ZUÑIGA GUISSELA KARINA)
+	Clase de Documento 	(Boton con selección / 007 Resolución Coactiva)
+	UU.OO Responsable 	(Boton no modificable / 7E2703 DIVISIÓN DE COBRANZA III-Superior)
+	Número de proceso SINE 	(Boton no modificable / P0100700B000000419)}
+	Encargado 		(Boton no modificable / GUARDIA ZUÑIGA GUISSELA KARINA)
+     Subtema Detalle del Pedido 
+	Archivo Seleccionado:(*)(Boton de Elegir archivo y Boton de Limpiar)
+     Afuera de los subtemas, finalmente se encuentra el boton de Registrar Pedido 
+	Alerta (Encabezado - Registro Manual de Pedido de Notificaciones / Mensaje - Se ha registrado el/los pedido(s) cliente 00000001168081 / Boton Aceptar) 
+
+Generado el número de Pedido Cliente, se consulta el número de Pedido SINE generado. Se puede ubicar en el módulo Consulta Registro Manual de Notificación
+ 
+- Consulta de Pedidos Manuales de Notificaciones
+     Subtema Pedido de Notificación
+	Dependencia		(Boton de selección / 0023-INTENDENCIA LIMA)	
+	Tipo de Documento	(Boton de selección / 007002 RES COACTIVA INTERVENCION EN)
+	Clase de Documento 	(Boton de selección / 007 RESOLUCIÓN COACTIVA)
+	Fecha de pedido 	(Boton de selección / Seleccionar la fecha a consultar en la tabla) (Al costado el boton de Consultar Pedido)
+     Subtema Pedido de Notificaciones
+	Tabla con los siguientes parámetros: 
+		- Pedido Cliente  	   (00000001107154)(Esto es generado por la función anterior Registro Manual de Pedido de Notificaciones) 
+		- PedIdO de SINE           (00230070020003745035)(Esto vendría a ser el número final)
+		- Fecha y Hora de Registro (31/07/2025 09:10)(La fecha y hora se calcula dependiendo al registrar el Pedido en Registro Manual de Pedido de Notificaciones) 
+		- Responsable SINE         (DARCY FERNANDO VALDIVIA)(Esto es por el encargado registrado)
+		- Estado                   (Terminado)(Aqui se muestra el estado)
+		- Observación              (3 Documentos válidos)(Si alguna carpeta zip no cumple con el criterio, se menciona el total de documentos válidos)
+	En resumen estas dos tablas tienen relación, ya que la primera vendría a ser el registro y esta última, la consulta del pedido(seleccionandose la fecha a realizar la busqueda, que dependencia, que tipo de documento. Una vez seleccionado estos 4 botones, se consulta el pedido y se muestra la tabla cuya matrices coincidan y se muestre en la tabla).
+
+ 
