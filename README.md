@@ -11,3 +11,18 @@ Created TensorFlow Lite XNNPACK delegate for CPU.
 Se ha producido un error en la consulta: Reiniciando navegador
 Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#58 is a dynamic-sized tensor).
 En mi equipo el codigo funciona con normalidad, pero cuando lo ejecuto en este equipo  no funciona y sale este error, el codigo se queda estancado en la resolucion del captcha, y se llega a descargar la imagen del captcha. Pensaba que el error era por las dll redistributables pero estan completas.
+
+
+
+Verificando DLLs comunes de Visual C++ Redistributable...
+msvcp140.dll encontrado en C:\Windows\System32
+msvcp140.dll encontrado en C:\Windows\SysWOW64
+vcruntime140.dll encontrado en C:\Windows\System32
+vcruntime140.dll encontrado en C:\Windows\SysWOW64
+vcruntime140_1.dll encontrado en C:\Windows\System32
+msvcp140_1.dll encontrado en C:\Windows\System32
+msvcp140_1.dll encontrado en C:\Windows\SysWOW64
+msvcp140_2.dll encontrado en C:\Windows\System32
+msvcp140_2.dll encontrado en C:\Windows\SysWOW64
+ucrtbase.dll encontrado en C:\Windows\System32
+ucrtbase.dll encontrado en C:\Windows\SysWOW64
