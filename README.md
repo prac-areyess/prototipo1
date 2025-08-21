@@ -1,0 +1,13 @@
+DevTools listening on ws://127.0.0.1:50900/devtools/browser/c7bd013b-46e7-41da-9bfe-009433052d51
+Navegando a Sunarp ....
+Digitando Usuario ....
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1755800904.619082   11216 voice_transcription.cc:58] Registering VoiceTranscriptionCapability
+Digitando Contraseña ...
+Iniciando Sesión ...
+-----> Número de consulta 1 de 2 <-----
+Downloading detection model, please wait. This may take several minutes depending upon your network connection.
+Created TensorFlow Lite XNNPACK delegate for CPU.
+Se ha producido un error en la consulta: Reiniciando navegador
+Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#58 is a dynamic-sized tensor).
+En mi equipo el codigo funciona con normalidad, pero cuando lo ejecuto en este equipo  no funciona y sale este error, el codigo se queda estancado en la resolucion del captcha, y se llega a descargar la imagen del captcha. Pensaba que el error era por las dll redistributables pero estan completas.
