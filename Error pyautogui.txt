@@ -1,0 +1,32 @@
+(.venv) D:\Usuarios\prac-areyess\Documents\Proyectos\Avancee\RSIRAT AVANCE>pip install pyautogui --proxy="http://prac-areyess:Sunat2004@proxy.sunat.peru:8080" --trusted-host pypi.org --trusted-host files.pythonhosted.org
+Collecting pyautogui
+  Using cached PyAutoGUI-0.9.54.tar.gz (61 kB)
+  Installing build dependencies ... error
+  error: subprocess-exited-with-error
+
+  × pip subprocess to install build dependencies did not run successfully.
+  │ exit code: 1
+  ╰─> [10 lines of output]
+      WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x0000023C1959EE90>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/setuptools/
+      WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x0000023C19462F90>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/setuptools/
+      WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x0000023C195AD590>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/setuptools/
+      WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x0000023C195AE010>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/setuptools/
+      WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x0000023C195AEC50>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/setuptools/
+      ERROR: Could not find a version that satisfies the requirement setuptools>=40.8.0 (from versions: none)
+      ERROR: No matching distribution found for setuptools>=40.8.0
+     
+      [notice] A new release of pip is available: 23.2.1 -> 25.2
+      [notice] To update, run: python.exe -m pip install --upgrade pip
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× pip subprocess to install build dependencies did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+[notice] A new release of pip is available: 23.2.1 -> 25.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
