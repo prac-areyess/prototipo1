@@ -1,0 +1,57 @@
+Archivos y/o Programas que complementan al bot:
+- Excel (tabla con encabezados RUC, DEPENDENCIA, EXPEDIENTE
+  , INTERVENTOR, PLAZO, MONTO, TIPO DE MEDIDA, RESULTADO)
+- Txt(usuario, contraseña)
+- RSIRAT
+
+Pasos que debe realizar el bot:
+1.  Abrir el RSIRAT, ingresando con su usuario y contraseña.
+2.  Aparecera un menú de opciones, donde se hara click en el 
+    módulo de "Cobranza Coactiva".
+3.  Dentro del módulo "Cobranza Coactiva", aparecerán submód
+    ulos, haciendo doble click en el sub "Exp. Cob. Coactiva
+    - Individual".
+4.  Esperar a que se abra la sig. ventana (ventana llamada -
+    "Selección de Expediente Coactivo". Donde tiene como cua
+    dros "Forma de Ingreso", en donde hay dos opciones: Expe
+    diente y Contribuyente, por predeterminado ya viene sele
+    ccionado "Expediente". La otra tabla o forma con titulo-
+    "Ingrese Expediente", en donde aparece "Número:" con un 
+    form como campo de entrada).
+5.  Copiar o redactar la información referente al primer exp
+    ediente que se encuentre en el Excel (se colocará el nro
+    de expediente en el apartado "Número:", a su costado hay
+    un campo de entrada donde se digitara el nro exp).
+6.  Posterior a la digitación del nro expediente, mandar la 
+    tecla tab para que cargue la información siguiente (como
+    bien ya explicado el cuadro de "Ingrese expediente" adic
+    cional a la digitación del nro exp, abajo hay otra tabla
+    donde contiene encabezados como Número, Tipo, Saldos, Fe
+    cha de Transferencia, Medidas de Embargo y Grupo, en don
+    de en el encabezado de Saldos contiene sub encabezados: 
+    Total, Exigible, Costas), es importante que la columna "
+    Grupo" tenga contenido, porque aveces pasa que no tiene,
+    en esos casos el proceso ya no debe continuar para ese E
+    xpediente, sino empezar otra vez con el siguiente expedi
+    ente, se debe consignar en la columna de RESULTADOS del 
+    Excel "Sin ejecutor asignado". Luego de que carga presio
+    nar "Alt + A".
+7.  Desaparecerá la ventana y nos quedaremos solo con el sig
+    uiente menú (Menú de Opciones "Exp. Cob. Coactiva - Indi
+    vidual), con las sub-opciones donde hacemos clic en "pro
+    ceso de embargo" para que se expandan más opciones.
+8.  De todas las opciones, hacemos clic en "Proceso de Embar
+    go" para que se expandan más opciones.
+9.  De todas las opciones, luego clic en "Trabar Embargo".
+10. Aquí es donde se elije el tipo de embargo y se continua 
+    con el proceso que le corresponde a cada uno de ellos, e
+    ste proceso será en función de la columna “TIPO DE MEDID
+    A” del Excel:
+    Si en la columna Tipo de medida esta IEI, se correrá el 
+    proceso para emitir Intervenciones en Información, Si es
+    tuviera las iniciales DSE, se correrá el proceso para em
+    itir depósitos Sin Extracción, Si estuviera las iniciale
+    s IER, se correrá el proceso para emitir Intervenciones 
+    en Recaudación, de lo contrario no se correrá ningún pro
+    ceso y se pasara al siguiente expediente.
+ 
