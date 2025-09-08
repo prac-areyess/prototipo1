@@ -1,11 +1,10 @@
-Archivos y/o Programas:
+Archivos y/o Programas que complementan al bot:
 - Excel (tabla con encabezados RUC, DEPENDENCIA, EXPEDIENTE
   , INTERVENTOR, PLAZO, MONTO, TIPO DE MEDIDA, RESULTADO)
 - Txt(usuario, contraseña)
 - RSIRAT
-___________________________________________________________
 
-Pasos:
+Pasos que debe realizar el bot:
 1.  Abrir el RSIRAT, ingresando con su usuario y contraseña.
 2.  Aparecera un menú de opciones, donde se hara click en el 
     módulo de "Cobranza Coactiva".
