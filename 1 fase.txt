@@ -1,0 +1,114 @@
+from pywinauto.application import Application
+import time
+import os
+import pandas as pd
+
+# --- Parámetros / datos ---
+excel_path = r'DATA\dependencias.xlsx'
+shortcut_path = r'D:\Usuarios\prac-areyess\Documents\Proyectos\Testeo\Actualiza RSIRAT.lnk'
+
+# Leer dependencia desde Excel
+df = pd.read_excel(excel_path)
+dep_raw = str(df['DEPENDENCIA'].iloc[0]).strip()
+
+if dep_raw in ['21', '0021']:
+    dependencia = '0021 I.R. Lima - PRICO'
+elif dep_raw in ['23', '0023']:
+    dependencia = '0023 I.R. Lima - MEPECO'
+else:
+    print(f"❌ Dependencia no reconocida: {dep_raw}")
+    raise SystemExit(1)
+
+# Leer contraseña desde archivo
+with open(r'CREDENCIAL\contrasena.txt', 'r', encoding='utf-8') as f:
+    password = f.read().strip()
+
+# --- Lanzar RSIRAT desde el acceso directo ---
+os.startfile(shortcut_path)
+print("🟢 RSIRAT iniciado.")
+time.sleep(10)  # margen para que cargue
+
+# --- Conectar con la app por UIA (no mueve mouse/teclado) ---
+app = Application(backend="uia").connect(title_re=".*SIRAT.*", timeout=20)
+
+# Tomar la ventana "más reciente"
+windows = app.windows()
+if not windows:
+    print("❌ No se encontró ninguna ventana de SIRAT.")
+    raise SystemExit(1)
+
+dlg = app.window(handle=windows[-1].handle)
+dlg.wait("visible enabled", timeout=15)
+
+# --- Paso 1: Seleccionar la dependencia (UIA, sin foco global) ---
+try:
+    combo = dlg.child_window(control_type="ComboBox")
+    combo.wait("visible enabled", timeout=10)
+    # Algunas apps requieren expandir antes de seleccionar
+    try:
+        combo.expand()
+        time.sleep(0.3)
+    except Exception:
+        pass
+    combo.select(dependencia)
+    print(f"✅ Dependencia seleccionada: {dependencia}")
+except Exception as e:
+    print("❌ No se pudo seleccionar la dependencia:", e)
+
+# --- Paso 2: Localizar el campo de contraseña por IsPassword y setear valor sin teclear ---
+try:
+    edits = dlg.descendants(control_type="Edit")
+    print(f"🔍 Se encontraron {len(edits)} campos Edit.")
+
+    password_field = None
+    for edit in edits:
+        # Propiedades UIA
+        props = {}
+        try:
+            props = edit.element_info.get_properties()
+        except Exception:
+            pass
+
+        # Buscar un Edit que sea de tipo password si la propiedad existe
+        is_pwd = props.get('is_password', False)
+        if is_pwd:
+            password_field = edit
+            break
+
+    # Fallback: si no detecta IsPassword, usa el último Edit como antes
+    if password_field is None and edits:
+        password_field = edits[-1]
+
+    if password_field is None:
+        raise RuntimeError("No se encontró campo de contraseña.")
+
+    # Escribir SIN teclear físicamente ni robar foco:
+    # - set_edit_text utiliza ValuePattern detrás (UIA), no el teclado
+    password_field.set_edit_text(password)
+    print("✅ Contraseña ingresada (UIA).")
+except Exception as e:
+    print("❌ No se pudo ingresar la contraseña:", e)
+
+# --- Paso 3: Activar 'Aceptar' SIN Alt+A (UIA invoke) ---
+try:
+    # Busca por nombre/título 'Aceptar'
+    accept_btn = None
+    # Intento 1: por título exacto
+    try:
+        accept_btn = dlg.child_window(title="Aceptar", control_type="Button")
+        accept_btn.wait("visible enabled ready", timeout=5)
+    except Exception:
+        accept_btn = None
+
+    # Intento 2: por regex (en caso de mayúsculas/minúsculas/espacios)
+    if accept_btn is None:
+        accept_btn = dlg.child_window(title_re=".*Aceptar.*", control_type="Button")
+        accept_btn.wait("visible enabled ready", timeout=5)
+
+    # Invocar la acción del botón sin click físico ni teclas
+    accept_btn.invoke()
+    print("✅ 'Aceptar' invocado (UIA).")
+except Exception as e:
+    print("❌ No se pudo activar 'Aceptar' por UIA:", e)
+
+print("🏁 Flujo completado.")

@@ -1,0 +1,28 @@
+📌 Fase actual: Automatización semi-background con Python + UI Automation
+
+- Tecnología usada:
+  • pywinauto (backend="uia") para manipular controles directamente.
+  • Se evita send_keys y type_keys (porque requieren foco).
+  • Se usan set_edit_text, select, invoke (patrones UIA).
+
+- Flujo implementado:
+  1. Leer dependencia desde Excel.
+  2. Leer contraseña desde archivo de texto.
+  3. Abrir RSIRAT desde un acceso directo (.lnk).
+  4. Conectarse a la ventana más reciente de SIRAT.
+  5. Seleccionar la dependencia en el ComboBox.
+  6. Ubicar el campo contraseña y rellenarlo con set_edit_text.
+  7. Hacer clic en Aceptar con invoke() (sin usar Alt+A).
+
+- Ventajas de esta fase:
+  • El usuario puede usar Word, Excel, Chrome, etc. mientras corre el bot.
+  • El bot no bloquea el mouse ni el teclado.
+  • Más robusto que simular teclas o clicks.
+
+- Restricción clave:
+  • No tocar la ventana de SIRAT mientras el bot está ejecutando, porque se pueden romper los pasos.
+
+👉 Próximos pasos:
+• Manejo de errores/reintentos (si alguien toca SIRAT).
+• Posicionar la ventana en un rincón visible pero no molesta.
+• Continuar con el resto del flujo después del login (navegación de menús, llenado de datos, etc.).
